@@ -34,12 +34,16 @@ import {MatIconModule} from '@angular/material/icon'
 import {MatDialogModule} from '@angular/material/dialog'
 
 // 8.- Para trabajar con grid
-import {MatGridListModule} from '@angular/material/grid-list'
+import {MatGridListModule} from '@angular/material/grid-list';
+import { DialogAddEditComponent } from './Dialogs/dialog-add-edit/dialog-add-edit.component';
+import { DialogoDeleteComponent } from './Dialogs/dialogo-delete/dialogo-delete.component'
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DialogAddEditComponent,
+    DialogoDeleteComponent
   ],
   imports: [
     BrowserModule,

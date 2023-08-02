@@ -1,0 +1,67 @@
+<h1 mat-dialog-title>{{titulo}} Producto</h1>
+<div mat-dialog-content>
+    <form [formGroup]="formProducto">
+        <mat-grid-list cols="1" rowHeight="80px" >
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre Producto</mat-label>
+                    <input matInput formControlName="nombreProducto" autocomplete="off">
+                  </mat-form-field>
+            </mat-grid-tile>
+           
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Descripcion Producto</mat-label>
+                    <input matInput formControlName="descripcionProducto" autocomplete="off">
+                  </mat-form-field>
+            </mat-grid-tile>
+
+           
+           
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Precio</mat-label>
+                    <input matInput formControlName="precio" autocomplete="off" type="number">
+                  </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>existencia</mat-label>
+                    <input matInput formControlName="existencia" autocomplete="off" type="number">
+                  </mat-form-field>
+            </mat-grid-tile>
+
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Tipo Productos</mat-label>
+                    <mat-select formControlName="tipoProductoId">
+                      <mat-option *ngFor="let item of ListaTiposProducto" [value]="item.id">
+                        {{item.nombreTipoProducto}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Fecha Registro</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="fechaRegistro">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+            </mat-grid-tile>
+            
+          </mat-grid-list>
+    </form>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+  <button mat-raised-button color="primary"
+   (click)="addEditProducto()" 
+   [disabled]="formProducto.invalid"
+   > {{botonaccion}}
+    </button>
+</div>
